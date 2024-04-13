@@ -8,6 +8,7 @@ Plug("tpope/vim-fugitive")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.5" })
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+Plug("nvim-treesitter/nvim-treesitter-context")
 -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 -- Plug('junegunn/vim-easy-align')
 
@@ -85,4 +86,7 @@ Plug("mfussenegger/nvim-lint")
 
 -- surround
 Plug("kylechui/nvim-surround")
+
+-- hlchunk
+Plug("shellRaining/hlchunk.nvim")
 vim.call("plug#end")

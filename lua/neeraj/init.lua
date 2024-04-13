@@ -8,6 +8,7 @@ require("neeraj.comment")
 require("neeraj.formatter")
 require("neeraj.linter")
 require("neeraj.surround")
+require("neeraj.hlchunk")
 -- Lua
 require("onedark").setup({
 	style = "dark",
@@ -27,12 +28,4 @@ vim.cmd("set relativenumber")
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup({
-	-- show all files
-	filters = {
-		dotfiles = false,
-		git_ignored = false,
-	},
-})
 require("nvim-web-devicons").setup()
