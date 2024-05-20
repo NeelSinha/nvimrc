@@ -8,7 +8,6 @@ Plug("tpope/vim-fugitive")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.5" })
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
-Plug("nvim-treesitter/nvim-treesitter-context")
 -- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 -- Plug('junegunn/vim-easy-align')
 
@@ -47,7 +46,7 @@ Plug("neovim/nvim-lspconfig")
 -- Autocompletion
 Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-nvim-lsp")
-Plug("L3MON4D3/LuaSnip")
+Plug("L3MON4D3/LuaSnip", { ["dependencies"] = { "rafamadriz/friendly-snippets" } })
 Plug("saadparwaiz1/cmp_luasnip")
 Plug("hrsh7th/cmp-buffer")
 Plug("hrsh7th/cmp-path")
@@ -89,4 +88,11 @@ Plug("kylechui/nvim-surround")
 
 -- hlchunk
 Plug("shellRaining/hlchunk.nvim")
+
+Plug("dsznajder/vscode-es7-javascript-react-snippets", { ["do"] = "yarn install --frozen-lockfile && yarn compile" })
+
+Plug("idanarye/vim-merginal")
+
+-- merginal package
+
 vim.call("plug#end")
