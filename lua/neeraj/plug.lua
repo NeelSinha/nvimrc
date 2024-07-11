@@ -91,8 +91,36 @@ Plug("shellRaining/hlchunk.nvim")
 
 Plug("dsznajder/vscode-es7-javascript-react-snippets", { ["do"] = "yarn install --frozen-lockfile && yarn compile" })
 
+-- merginal package
 Plug("idanarye/vim-merginal")
 
--- merginal package
+-- highlight colors
+Plug("brenoprata10/nvim-highlight-colors")
+
+-- copilot chat
+Plug("CopilotC-Nvim/CopilotChat.nvim", { ["branch"] = "canary" })
+
+-- nvim-dap
+Plug("mfussenegger/nvim-dap")
+
+--  nvim pretty hover
+-- Plug("Fildo7525/pretty_hover", { ["config"] = "require('pretty_hover').setup()" })
+
+Plug("davidosomething/format-ts-errors.nvim")
+
+-- oil file explorer
+Plug("stevearc/oil.nvim")
+
+-- ado pure
+
+Plug("Willem-J-an/adopure.nvim", {
+	["dependencies"] = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
+	},
+	["config"] = function()
+		vim.g.adopure = {}
+	end,
+})
 
 vim.call("plug#end")

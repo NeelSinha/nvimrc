@@ -47,5 +47,12 @@ require("formatter").setup({
 		javascriptreact = {
 			require("formatter.filetypes.javascriptreact").prettier,
 		},
+
+		go = {
+			require("formatter.filetypes.go").gofmt,
+		},
+		html = {
+			require("formatter.filetypes.html").prettier,
+		},
 	},
 })

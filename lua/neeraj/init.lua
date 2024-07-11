@@ -9,7 +9,9 @@ require("neeraj.formatter")
 require("neeraj.linter")
 require("neeraj.surround")
 require("neeraj.hlchunk")
--- Lua
+require("neeraj.highlight-colors")
+require("neeraj.copilot-chat")
+-- -- Lua
 require("onedark").setup({
 	style = "dark",
 })
@@ -28,4 +30,32 @@ vim.cmd("set relativenumber")
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
+vim.cmd("command! MakeTags !ctags -R .")
+
 require("nvim-web-devicons").setup()
+
+-- oil file explorer
+require("oil").setup({
+	lsp_file_methods = {
+		autosave_changes = true,
+	},
+	keymaps = {
+		["<C-p>"] = {
+			function()
+				require("telescope.builtin").git_files()
+			end,
+		},
+		["<leader>pp"] = "actions.preview",
+		["<leader>ff"] = {
+
+			function()
+				require("telescope.builtin").find_files({
+					cwd = require("oil").get_current_dir(),
+				})
+			end,
+			mode = "n",
+			nowait = true,
+			desc = "Find files in the current directory",
+		},
+	},
+})
