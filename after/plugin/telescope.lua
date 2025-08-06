@@ -12,3 +12,12 @@ vim.keymap.set("n", "<leader>pds", builtin.lsp_document_symbols)
 
 -- open workspace symbols
 vim.keymap.set("n", "<leader>pws", builtin.lsp_workspace_symbols)
+
+-- open buffers
+vim.keymap.set("n", "<leader>b", builtin.buffers)
+
+-- open references
+vim.keymap.set("n", "<leader>pr", builtin.lsp_references)
+
+-- open diagnostics
+vim.keymap.set("n", "<leader>pdd", builtin.diagnostics)

@@ -4,9 +4,12 @@ require("hlchunk").setup({
 		use_treesitter = true,
 	},
 	blank = {
-		enable = false,
+		enable = true,
 	},
 	indent = {
 		enable = false,
+	},
+	chunk = {
+		enable = true,
 	},
 })

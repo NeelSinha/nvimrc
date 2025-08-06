@@ -15,15 +15,16 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
 	end, opts)
-	vim.keymap.set("n", "[d", function()
+	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_next()
 	end, opts)
-	vim.keymap.set("n", "]d", function()
+	vim.keymap.set("n", "[d", function()
 		vim.diagnostic.goto_prev()
 	end, opts)
 	vim.keymap.set("n", "<leader>vca", function()
 		vim.lsp.buf.code_action()
 	end, opts)
+	-- set a keybinding to fix all issues in the current buffer
 	vim.keymap.set("n", "<leader>vrr", function()
 		vim.lsp.buf.references()
 	end, opts)
@@ -39,8 +40,6 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver" },
-	-- write code to setup typescript version
 
 	handlers = {
 		lsp_zero.default_setup,
@@ -82,10 +81,6 @@ require("mason-lspconfig").setup({
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
--- this is the function that loads the extra snippets to luasnip
--- from rafamadriz/friendly-snippets
-require("luasnip.loaders.from_vscode").lazy_load()
-
 cmp.setup({
 	sources = {
 		{ name = "path" },
@@ -102,3 +97,6 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 })
+
+-- You can also use lazy loading so you only get in memory snippets of languages you use
+require("luasnip.loaders.from_vscode").lazy_load() -- You can pass { paths = "./my-snippets/"} as well

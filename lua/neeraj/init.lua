@@ -12,10 +12,16 @@ require("neeraj.hlchunk")
 require("neeraj.highlight-colors")
 require("neeraj.copilot-chat")
 -- -- Lua
-require("onedark").setup({
-	style = "dark",
+-- color theme
+require("nightfox").setup({
+	options = {
+		transparent = true,
+		terminal_colors = true,
+	},
 })
-require("onedark").load()
+
+vim.cmd("colorscheme nightfox")
+
 -- Enable line numbers
 require("neeraj.linter")
 vim.cmd("set number")
@@ -58,4 +64,18 @@ require("oil").setup({
 			desc = "Find files in the current directory",
 		},
 	},
+})
+
+-- LuaLine
+require("lualine").setup({
+	sections = {
+		lualine_c = {
+			{ "filename", path = 4 },
+		},
+		lualine_x = { "filetype" },
+	},
+})
+
+require("leetcode").setup({
+	lang = "python3",
 })

@@ -54,5 +54,8 @@ require("formatter").setup({
 		html = {
 			require("formatter.filetypes.html").prettier,
 		},
+		python = {
+			require("formatter.filetypes.python").black,
+		},
 	},
 })

@@ -1,9 +1,6 @@
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin")
-
-Plug("theprimeagen/vim-be-good")
-
 Plug("tpope/vim-fugitive")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.5" })
@@ -46,12 +43,21 @@ Plug("neovim/nvim-lspconfig")
 -- Autocompletion
 Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-nvim-lsp")
-Plug("L3MON4D3/LuaSnip", { ["dependencies"] = { "rafamadriz/friendly-snippets" } })
+Plug("L3MON4D3/LuaSnip", {
+	["dependencies"] = {
+		"rafamadriz/friendly-snippets",
+		"xabikos/vscode-javascript",
+		"dsznajder/vscode-es7-javascript-react-snippets",
+	},
+	["tag"] = "v2.*",
+	["do"] = "make install_jsregexp",
+})
 Plug("saadparwaiz1/cmp_luasnip")
 Plug("hrsh7th/cmp-buffer")
 Plug("hrsh7th/cmp-path")
 Plug("hrsh7th/cmp-nvim-lua")
 Plug("rafamadriz/friendly-snippets")
+Plug("xabikos/vscode-javascript")
 
 -- mason
 Plug("williamboman/mason.nvim")
@@ -62,6 +68,10 @@ Plug("VonHeikemen/lsp-zero.nvim", { ["branch"] = "v3.x" })
 --themes
 Plug("navarasu/onedark.nvim")
 Plug("EdenEast/nightfox.nvim")
+Plug("catppuccin/nvim")
+Plug("projekt0n/github-nvim-theme")
+Plug("rose-pine/neovim")
+Plug("folke/tokyonight.nvim")
 
 Plug("niqodea/lasso.nvim")
 
@@ -70,9 +80,8 @@ Plug("lukas-reineke/lsp-format.nvim")
 
 Plug("mhartington/formatter.nvim")
 
--- side panel tree
+-- dev icons needed for so many things
 Plug("nvim-tree/nvim-web-devicons")
-Plug("nvim-tree/nvim-tree.lua")
 
 -- lazygit
 Plug("kdheepak/lazygit.nvim")
@@ -98,10 +107,7 @@ Plug("idanarye/vim-merginal")
 Plug("brenoprata10/nvim-highlight-colors")
 
 -- copilot chat
-Plug("CopilotC-Nvim/CopilotChat.nvim", { ["branch"] = "canary" })
-
--- nvim-dap
-Plug("mfussenegger/nvim-dap")
+Plug("CopilotC-Nvim/CopilotChat.nvim", { ["branch"] = "main" })
 
 --  nvim pretty hover
 -- Plug("Fildo7525/pretty_hover", { ["config"] = "require('pretty_hover').setup()" })
@@ -123,4 +129,27 @@ Plug("Willem-J-an/adopure.nvim", {
 	end,
 })
 
+Plug("sindrets/diffview.nvim")
+Plug("atiladefreitas/dooing")
+
+-- LuaLine
+Plug("nvim-lualine/lualine.nvim")
+Plug("nvim-tree/nvim-web-evicons")
+
+Plug("MunifTanjim/nui.nvim")
+Plug("kawre/leetcode.nvim", {
+	["build"] = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+	["dependencies"] = {
+		"nvim-telescope/telescope.nvim",
+		-- "ibhagwan/fzf-lua",
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+	},
+	["opts"] = {
+		plugins = {
+			non_standalone = true,
+		},
+		arg = "leetcode.nvim",
+	},
+})
 vim.call("plug#end")
